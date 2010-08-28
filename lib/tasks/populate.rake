@@ -42,9 +42,9 @@ def create_address
 end
 
 def create_profiles
-   Profile.destroy_all
-   User.destroy_all
-   Address.destroy_all
+   Profile.delete_all
+   User.delete_all
+   Address.delete_all
    PROFILE_COUNT.times do 
      p = Profile.create! :last_name => Forgery::Name.last_name,
                          :first_name => Forgery::Name.first_name,
@@ -65,7 +65,7 @@ def create_profiles
 end
 
 def create_relations
-  Relation.destroy_all
+  Relation.delete_all
   RELATION_COUNT.times do 
     source, target = two_random_different_profiles
     Relation.create! :source => source, :destination => target,
@@ -77,7 +77,7 @@ def create_relations
 end
 
 def create_messages
-  Message.destroy_all
+  Message.delete_all
   MESSAGE_COUNT.times do 
     source, target = two_random_different_profiles
     Message.create! :from => source, :to => target, 
