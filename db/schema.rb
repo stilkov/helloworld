@@ -9,14 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100827215717) do
+ActiveRecord::Schema.define(:version => 20100829083627) do
 
   create_table "addresses", :force => true do |t|
-    t.string  "street"
-    t.string  "city"
-    t.string  "zip"
-    t.string  "country"
-    t.integer "profile_id"
+    t.string "street"
+    t.string "city"
+    t.string "zip"
+    t.string "country"
   end
 
   create_table "messages", :force => true do |t|

@@ -6,8 +6,12 @@ def rand_time(days = 365)
   rand(days).days.ago - rand(24).hours - rand(60).minutes
 end
 
+def rand_profession
+  %w(CEO CFO CIO Entrepreneur Developer Assistant Manager Accountant Photographer).random
+end
+
 def random_boolean
-  rand(2) == 1
+  [false, true].random
 end
 
 def maybe(&block)
@@ -15,7 +19,7 @@ def maybe(&block)
 end
 
 def rand_type 
-  ProfileAttribute.types[rand(ProfileAttribute.types.length)]
+  ProfileAttribute.types.random
 end
 
 def random_profile
@@ -49,6 +53,7 @@ def create_profiles
      p = Profile.create! :last_name => Forgery::Name.last_name,
                          :first_name => Forgery::Name.first_name,
                          :company => Forgery::Name.company_name,
+                         :profession => rand_profession,
                          :about => Forgery::LoremIpsum.paragraph, 
                          :created_at => rand_time,
                          :updated_at => rand_time

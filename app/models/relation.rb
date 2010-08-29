@@ -1,4 +1,4 @@
 class Relation < ActiveRecord::Base
-  has_one :source, :class_name => "Profile"
-  has_one :destination, :class_name => "Profile"
+  belongs_to :source, :class_name => "Profile"
+  belongs_to :destination, :class_name => "Profile"
 end
