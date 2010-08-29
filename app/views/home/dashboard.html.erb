@@ -1,2 +1,6 @@
-<h1>Dashboard for <%= @user.login %></h1>
-<%= link_to "Logout", :controller => 'auth', :action => 'logout' %>
+<% div_for @profile do %>
+<h1>Dashboard for <%= @profile.full_name %></h1>
+<p class="contact-count"><span class="label"># of Contacts:</span><%= @contact_count %></p>
+<p class="message-count"><span class="label"># of Messages:</span><%= @message_count %></p>
+<% end %>
+

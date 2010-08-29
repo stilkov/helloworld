@@ -2,16 +2,22 @@ class AuthController < ApplicationController
   # Note: this implementation is a security nightmare 
   # and NOT intended for production use.
 
+  def random_user
+    User.find(:first, :offset => rand(User.count))
+  end
+
   def login
     @user = User.new
-    @dest ||= home_path
+    @dest ||= dashboard_path
+    sample_user = random_user
+    @hint = "Try user '#{sample_user.login}' with password '#{sample_user.password}' to get started."
   end
 
   def authenticate
     @user = User.find_by_login(params[:user][:login])
     if @user and @user.password == params[:user][:password]
-      session[:user] = @user
-      dest = params[:dest] || home_path
+      session[:user] = @user.id
+      dest = params[:dest] || dashboard_path
       redirect_to dest
     else
       flash[:notice] = "Wrong username/password combination"
@@ -31,7 +37,7 @@ class AuthController < ApplicationController
     @user = User.find_by_login(params[:user][:login])
     if @user.nil?
       @user = User.create(params[:user])
-      session[:user] = @user
+      session[:user] = @user.id
       dest = params[:dest] || home_path
       redirect_to dest
     else

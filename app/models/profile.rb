@@ -16,4 +16,8 @@ class Profile < ActiveRecord::Base
     # intentionally stupid
     contacts.count
   end
+
+  def message_count
+    received_messages.count
+  end
 end
