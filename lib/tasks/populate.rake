@@ -84,9 +84,14 @@ def create_relations
   random_connections(RELATION_COUNT) do |source, target|
     Relation.create! :source => source, :destination => target,
                      :comment => Forgery::LoremIpsum.paragraph,
-                     :accepted => random_boolean,
+                     :accepted => true,
                      :created_at => rand_time,
                      :updated_at => rand_time
+    maybe { Relation.create! :source => target, :destination => source,
+                     :comment => Forgery::LoremIpsum.paragraph,
+                     :accepted => random_boolean,
+                     :created_at => rand_time,
+                     :updated_at => rand_time }
   end
 end
 

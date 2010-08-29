@@ -1,0 +1,4 @@
+<% content_tag_for(:li, contact) do %>
+<p class="name"><%= link_to(contact.full_name, contact) %></p>
+<p class="company"><span class="label">Company:</span><%= contact.company %></p>
+<% end %>

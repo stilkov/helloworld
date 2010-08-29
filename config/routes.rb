@@ -1,3 +1,4 @@
 Helloworld::Application.routes.draw do |map|
-  match 'profiles/:id(.:format)' => 'profiles#show'
+  map.resources :profiles
+  match 'public/:id(.:format)' => 'profile#show_public'
 end
