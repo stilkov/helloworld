@@ -1,5 +1,5 @@
 Helloworld::Application.routes.draw do |map|
-  get "home/dashboard"
+  map.resources :profiles
 
   get "auth/login"
   get "auth/logout"
@@ -8,12 +8,11 @@ Helloworld::Application.routes.draw do |map|
   map.authenticate "auth/authenticate", :controller => 'auth', :action => 'authenticate'
 
   match 'home' => 'home#dashboard', :as => :dashboard
-  match 'messages' => 'home#messages', :as => :messages
-  match 'contacts' => 'home#contacts', :as => :contacts
-  match 'profile' => 'home#profile', :as => :profile
-  match 'about' => 'home#about', :as => :about
+  match 'home/messages' => 'home#messages', :as => :messages
+  match 'home/contacts' => 'home#contacts', :as => :contacts
+  match 'home/profile' => 'home#profile', :as => :myprofile
+  match 'home/about' => 'home#about', :as => :about
 
-  map.resources :profiles
 
   match 'public/:id(.:format)' => 'profiles#show_public'
 

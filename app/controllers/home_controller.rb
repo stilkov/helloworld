@@ -6,9 +6,12 @@ class HomeController < ApplicationController
   end
 
   def messages
-    
+    @messages = @profile.received_messages
   end
 
+  def contacts
+    @contacts = @profile.contacts
+  end
 
   def setup_context
     @user = User.find(session[:user])
