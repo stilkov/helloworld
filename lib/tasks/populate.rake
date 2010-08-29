@@ -1,6 +1,6 @@
 PROFILE_COUNT = ENV['USERS'] || 50
-RELATION_COUNT = ENV['RELATIONS'] || PROFILE_COUNT * 20
-MESSAGE_COUNT = ENV['MESSAGES'] || PROFILE_COUNT * 20
+RELATION_COUNT = ENV['RELATIONS'] || 20
+MESSAGE_COUNT = ENV['MESSAGES'] || 20
 
 def rand_time(days = 365)
   rand(days).days.ago - rand(24).hours - rand(60).minutes
@@ -26,10 +26,10 @@ def random_profile
   Profile.find(:first, :offset => rand(PROFILE_COUNT))
 end
 
-def two_random_different_profiles
-  p1 = p2 = random_profile
-  p2 = random_profile until p1 != p2
-  [p1, p2]
+def random_set(count, limit)
+  a = Set.new
+  a.add(rand(limit)) until a.count == count  
+  a
 end
 
 def create_profile_attributes
@@ -69,10 +69,19 @@ def create_profiles
    end
 end
 
+def random_connections(count, &block) 
+  PROFILE_COUNT.times do
+    source = random_profile
+    random_set(rand(count), PROFILE_COUNT).each do |offset|
+      target = Profile.find(:first, :offset => offset)
+      yield source, target unless source == target
+    end
+  end
+end 
+
 def create_relations
   Relation.delete_all
-  RELATION_COUNT.times do 
-    source, target = two_random_different_profiles
+  random_connections(RELATION_COUNT) do |source, target|
     Relation.create! :source => source, :destination => target,
                      :comment => Forgery::LoremIpsum.paragraph,
                      :accepted => random_boolean,
@@ -83,13 +92,12 @@ end
 
 def create_messages
   Message.delete_all
-  MESSAGE_COUNT.times do 
-    source, target = two_random_different_profiles
+  random_connections(MESSAGE_COUNT) do |source, target|
     Message.create! :from => source, :to => target, 
-    :subject => Forgery::LoremIpsum.sentence,
-                     :body => Forgery::LoremIpsum.paragraph,
-                     :created_at => rand_time,
-                     :updated_at => rand_time
+                    :subject => Forgery::LoremIpsum.sentence,
+                    :body => Forgery::LoremIpsum.paragraph,
+                    :created_at => rand_time,
+                    :updated_at => rand_time
   end
 end
 
