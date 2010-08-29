@@ -6,7 +6,9 @@ class HomeController < ApplicationController
   end
 
   def messages
-    @messages = @profile.received_messages
+    @messages = Message.where(:to_id => @profile.id).paginate :page => params[:page], 
+                                                           :per_page => 5,
+                                                           :order => 'updated_at DESC'
   end
 
   def contacts

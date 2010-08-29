@@ -1,3 +1,4 @@
+<p>Messages: <%= @messages.count %>
 <ul>
 <% @messages.each do |m| %>
   <% content_tag_for(:li, m) do %>
@@ -5,4 +6,5 @@
   <p class="subject"><span class="label">Subject:</span><%= m.subject %></p>
   <% end %>
 <% end %>
+<%= will_paginate @messages %>
 </ul>
