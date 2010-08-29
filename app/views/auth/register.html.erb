@@ -1,0 +1,11 @@
+<%= link_to "Login", :controller => 'auth', :action => 'login' %>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% form_for @user, :url => register_user_path do |u| %>
+  <%= u.label :login, 'Login' %>:
+  <%= u.text_field :login %><br />
+  <%= u.label :password, 'Password' %>:
+  <%= u.password_field :password %><br />
+ <%= u.submit "Register" %>
+<% end %>
