@@ -7,6 +7,7 @@ class Profile < ActiveRecord::Base
   #has_many :contacts, :through => :relations, :source => :destination
   has_many :sent_messages, :foreign_key => :from_id, :class_name => "Message"
   has_many :received_messages, :foreign_key => :to_id, :class_name => "Message"
+  has_many :statuses
 
   def full_name 
     "#{first_name} #{last_name}"
@@ -23,5 +24,9 @@ class Profile < ActiveRecord::Base
 
   def contacts
     Relation.joins(:destination).where(:source_id => id)
+  end
+
+  def image
+    "user.png"
   end
 end

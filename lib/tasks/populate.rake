@@ -1,6 +1,7 @@
 PROFILE_COUNT = ENV['USERS'] || 50
 RELATION_COUNT = ENV['RELATIONS'] || 20
 MESSAGE_COUNT = ENV['MESSAGES'] || 20
+STATUS_COUNT = ENV['STATUS'] || 50
 
 def rand_time(days = 365)
   rand(days).days.ago - rand(24).hours - rand(60).minutes
@@ -106,11 +107,22 @@ def create_messages
   end
 end
 
+def create_statuses
+  Status.delete_all
+  STATUS_COUNT.times do
+    who = random_profile
+    Status.create! :profile => who,
+                   :message => Forgery::LoremIpsum.sentence,
+                   :created_at => rand_time
+  end
+end
+
 begin
   namespace :db do
     desc "Populate the development database with some fake data, based on #{PROFILE_COUNT} users"
     task :populate => :environment do
       create_profiles
+      create_statuses
       create_relations
       create_messages
     end

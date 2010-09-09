@@ -1,0 +1,352 @@
+/***** CSS by Thomas Karolzyk - thomas@karolzyk.com ****/
+
+/* make sure reset.css is loaded */
+
+/********************************************************************/
+/* GENERAL */
+/********************************************************************/
+
+body {
+	background: #fff url(../img/bg.jpg) repeat-y;
+	color:#000;
+	font-size: 12px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+	margin: 0 0 12px 0;
+}
+
+/********************************************************************/
+/* LINKS */
+/********************************************************************/
+
+a {
+	color: #f00;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #f00;
+	text-decoration: none;
+}
+
+a img, img a { 
+	border:0 
+}
+
+#footer a {
+	color:#555;
+	font-size: 0.9em;
+	text-decoration: none;
+}
+
+/********************************************************************/
+/* LAYOUT */
+/********************************************************************/
+
+#main { 
+	position: relative;
+	width: 940px;
+/* 	background: #fff url(../img/.gif) repeat-x; */
+	margin: 0 auto;
+} 
+
+#logo { 
+	position: absolute;
+	top: 47px;
+	left:0;
+} 
+
+#claim { 
+	position: absolute;
+	top: 46px;
+	left:290px;
+} 
+
+#header { 
+	position: relative;
+	height: 168px;
+	background: #fff url(../img/.gif) repeat-x;
+} 
+
+#footer { 
+	position: relative;
+	width: 940px;
+	margin: 100px auto 30px auto;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+} 
+
+#content-holder {
+	margin: 0 0 50px 0;
+}
+
+#col-one {
+	float:left;
+	width:231px;
+}
+
+#col-two {
+	float:left;
+	width:440px;
+	margin: 0 20px;
+}
+
+#col-three {
+	float:left;
+	width:215px;
+}
+
+/********************************************************************/
+/* CONTACT LIST SMALL */
+/********************************************************************/
+
+.contact-list-small {
+	line-height: 120%;
+	border-top: 1px solid #cfcfcf;
+/* 	padding: 10px 0; */
+	color: #555;
+	font-size: 0.9em;
+	line-height: 130%;
+}
+
+.contact-list-small-item {
+	border-bottom: 1px solid #cfcfcf;
+	padding: 8px 0 10px 0;
+}
+
+.contact-list-small-text {
+	float:right;
+	width: 125px;
+	margin: 0 5px 0 0;
+}
+
+.contact-list-small-img {
+	float:left;
+	width: 61px;
+}
+
+.contact-list-small-username {
+	font-weight:bold;
+}
+
+.contact-list-small-email a {
+	color:#aaa;
+	display:block;
+	margin: 10px 0 0 0;
+	text-decoration: none;
+}
+
+
+.contact-list-small-email a:hover {
+	color:#333;
+}
+
+/********************************************************************/
+/* LINKS */
+/********************************************************************/
+
+a.button-blue {
+/* 	display:block; */
+	padding: 5px 20px;
+	background: transparent url(img/btn-blue.png) repeat-x;
+	font-size: 1.2em;
+	color:#fff;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-shadow: #333 1px 1px 2px;
+}
+
+
+/********************************************************************/
+/* PROFILE */
+/********************************************************************/
+
+.profile-center {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #e3f0f1;
+	padding: 18px 22px 100px 22px;
+	color:#555;
+	line-height: 125%;
+	margin: 0 0 15px 0;
+}
+
+.profile-center-company {
+	font-size: 0.9em;
+	margin: 18px 0;
+}
+
+.profile-center-contact-label {
+	float:left;
+	width: 100px;
+	font-weight:bold;
+	font-size: 0.9em;
+	margin: 0 0 2px 0;
+}
+
+.profile-center-contact-data {
+	float:left;
+	width: 250px;	
+	font-size: 0.9em;
+	margin: 0 0 2px 0;
+}
+
+.profile-actions {
+	margin: 12px 0 25px 0;
+}
+
+.profile-actions a {
+	color:#478595;
+	margin: 5px 0;
+	display:block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+
+.profile-actions a:hover {
+	color: #333;
+}
+
+.profile-stream {
+	line-height: 120%;
+	border-top: 1px solid #cfcfcf;
+/* 	padding: 10px 0; */
+	color: #555;
+	font-size: 0.9em;
+}
+
+.profile-stream-item-date {
+	font-weight:bold;
+}
+
+.profile-stream-item {
+	border-bottom: 1px solid #cfcfcf;
+	padding: 8px 0 10px 0;
+}
+
+/********************************************************************/
+/* MISC CLASSES */
+/********************************************************************/
+
+.img-left {
+	float:left;
+	margin: 0 1em 1em 0;
+}
+
+.img-right {
+	float:right;
+	margin: 0 0 1em 1em;
+}
+
+/********************************************************************/
+/* FORMS */
+/********************************************************************/
+
+input {
+	font-size: 10px;
+	font-family: inherit;
+}
+
+textarea {
+	font-size: 10px;
+	font-family: inherit;
+}
+
+select {
+	font-size: 10px;
+	font-family: inherit;
+}
+
+/********************************************************************/
+/* HEADER */
+/********************************************************************/
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight:normal;
+	font-size: 100%;
+}
+
+h1 {
+	font-size:2em;
+	font-weight:bold;
+	color:#4e9afa;
+	border-bottom: 1px solid #ddd;
+	padding: 0 0 10px 0;
+	margin: 0 0 25px 0;
+}
+
+h2 {
+	font-size:1.3em;
+	font-weight:bold;
+	color:#4e9afa;
+	margin: 0 0 12px 0;
+}
+
+h3 {
+	font-size:1.2em;
+	font-weight:bold;
+	color:#555;
+	margin: 5px 0;
+}
+h4 {
+	font-size:0.9em;
+	font-weight:bold;
+	color:#555;
+	text-transform: uppercase;
+	margin: 20px 0 5px 0;
+}
+
+/********************************************************************/
+/* NAVIGATION */
+/********************************************************************/
+
+#meta {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 10px;
+}
+
+#meta ul {
+	list-style: none;
+}
+
+#meta ul li {
+	margin: 0 10px 0 0;
+	display: inline;
+	border-right: 1px solid #fff;
+}
+
+#meta ul li a { 
+/*
+	display: block;
+	float:left;
+*/
+	text-decoration: none;
+	color: #5aa4fb; 
+}
+
+#meta ul li.active a { 
+	color: #333; 
+}
+
+/********************************************************************/
+/* HELPER CLASSES */
+/********************************************************************/
+
+.clear {
+	clear: both;
+}
+
+.out {
+	position: absolute;
+	top: -999px;
+	left: -999px;
+}
